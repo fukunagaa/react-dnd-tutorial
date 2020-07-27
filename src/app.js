@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Knight from "./components/Knight";
+import Board from "./components/Board";
 
 const app = document.getElementById("app");
-ReactDOM.render(<Knight />, app);
+ReactDOM.render(<Board knightPosition={[0, 0]} />, app);
