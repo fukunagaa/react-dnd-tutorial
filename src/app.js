@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Knight from "./components/Knight";
+import Board from "./components/Board";
+import { observe } from "./components/Game";
 
 const app = document.getElementById("app");
-ReactDOM.render(<Knight />, app);
+observe((knightPosition) =>
+  ReactDOM.render(<Board knightPosition={knightPosition} />, app)
+);

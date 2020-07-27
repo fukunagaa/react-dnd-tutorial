@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function Knight() {
+function Knight() {
   return <span>♘</span>;
 }
+
+export default Knight;
