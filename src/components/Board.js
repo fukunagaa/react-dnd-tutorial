@@ -2,6 +2,7 @@ import React from "react";
 import Knight from "./Knight";
 import Square from "./Square";
 import Empty from "./Empty";
+import { moveKnight, canMoveKnight } from "./Game";
 
 function renderSquare(i, [knightX, knightY]) {
   const x = i % 8;
@@ -10,10 +11,20 @@ function renderSquare(i, [knightX, knightY]) {
   const black = (x + y) % 2 === 1;
   const piece = isKnightHere ? <Knight /> : <Empty />;
   return (
-    <div key={i} style={{ width: "12.5%", height: "12.5%" }}>
+    <div
+      key={i}
+      style={{ width: "12.5%", height: "12.5%" }}
+      onClick={() => handleSquareClick(x, y)}
+    >
       <Square black={black}>{piece}</Square>
     </div>
   );
+}
+
+function handleSquareClick(toX, toY) {
+  if (canMoveKnight(toX, toY)) {
+    moveKnight(toX, toY);
+  }
 }
 
 function Board({ knightPosition }) {
